@@ -47,7 +47,14 @@
     margin: 1rem;
 }
 
-.linkText:active {
+.learMoreBtn {
+    color: bisque;
+    margin: 1rem;
+    width: 6rem;
+    box-shadow: 0 3px 3px 4px bisque !important;
+}
+
+.learMoreBtn:active {
 color: white;
 }
 
