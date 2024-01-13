@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
-import experiencesData from "../../assets/data.json";
-import "./experience.css";
+import experiencesData from '../../assets/data.json';
+import './experience.css';
 
-
-const ExperienceCard = ({ projectName, role, timePeriod, description, responsibilities, toolsUsed, projectLandingPage }) => {
+const ExperienceCard = ({
+    projectName,
+    role,
+    timePeriod,
+    description,
+    responsibilities,
+    toolsUsed,
+    projectLandingPage,
+}) => {
     const [isPopupOpen, setPopupOpen] = useState(false);
 
     const handleLearnMoreClick = () => {
@@ -16,30 +23,31 @@ const ExperienceCard = ({ projectName, role, timePeriod, description, responsibi
 
     return (
         <div className="experience-card">
-            <img src={projectLandingPage} alt="Project Landing Page" className='projectLandingPage' />
-            <h3 className='projectName'>{projectName}</h3>
+            <img src={projectLandingPage} alt="Project Landing Page" className="projectLandingPage" />
+            <h3 className="projectName">{projectName}</h3>
             <h3>{role}</h3>
             <p>{timePeriod}</p>
 
-            <a onClick={handleLearnMoreClick} className='linkText'>
-                Learn More . . 
-            </a>
+            <button onClick={handleLearnMoreClick} className="learMoreBtn">
+                Learn More . .
+            </button>
 
             {isPopupOpen && (
                 <div className="popup">
                     <h2>{projectName}</h2>
                     <h2>{role}</h2>
                     <p>{description}</p>
-                    <br/>
-                    <h4 className='linkText'>Responsibilities:</h4>
+                    <br />
+                    <h4 className="linkText">Responsibilities:</h4>
                     <div dangerouslySetInnerHTML={{ __html: responsibilities }} />
-                    <br/>
-                    <h4 className='linkText'>Tools Used:</h4>
+                    <br />
+                    <h4 className="linkText">Tools Used:</h4>
                     <p>{toolsUsed}</p>
 
-                    <a onClick={handlePopupClose} className='closeText'>
+                    {/* Use a button for Close */}
+                    <button onClick={handlePopupClose} className="closeText">
                         Close
-                    </a>
+                    </button>
                 </div>
             )}
         </div>
@@ -48,7 +56,7 @@ const ExperienceCard = ({ projectName, role, timePeriod, description, responsibi
 
 function Experience() {
     return (
-        <section id='experience'>
+        <section id="experience">
             <div>
                 <p className="section__text__p1">Explore My</p>
                 <h1 className="title">Experience</h1>
@@ -59,10 +67,10 @@ function Experience() {
                         key={index}
                         projectName={experience['Project Name']}
                         role={experience.Role}
-                        timePeriod={experience["Time Period"]}
+                        timePeriod={experience['Time Period']}
                         description={experience.Description}
                         responsibilities={experience.Responsibilities}
-                        toolsUsed={experience["Tools Used"]}
+                        toolsUsed={experience['Tools Used']}
                         projectLandingPage={experience.projectLandingPage}
                     />
                 ))}
