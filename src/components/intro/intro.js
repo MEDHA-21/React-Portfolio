@@ -2,7 +2,7 @@ import React from "react";
 import bg from "../../icons/bgimage.png";
 import "./intro.css";
 import data from "../../assets/data.json";
-import { Link } from "react-scroll";
+import { Link } from 'react-scroll';
 
 const Intro = () => {
     const handleDownloadCV = () => {
